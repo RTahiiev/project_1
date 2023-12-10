@@ -20,7 +20,8 @@ jobs:
       contents: read
 
     steps:
-      - uses: action/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
@@ -36,7 +37,7 @@ jobs:
         with: 
           host: ${{secrets.SERVER_HOST}}
           username: ${{secrets.SERVER_USERNAME}}
-          password: ${{secrets.SERVER_PASSWORD}}
+          key: ${{secrets.KEY}}
           script: |
             CI=true docker login -i ${{secrets.DOCKER_HUB_USERNAME}} -p ${{secrets.DOCKER_HUB_ACCESS_TOKEN}}
             CI=true docker stop rust-aws-ec2-project1

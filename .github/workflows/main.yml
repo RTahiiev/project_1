@@ -45,5 +45,5 @@ jobs:
             CI=true docker rm rust-aws-ec2-project1
             CI=true docker image prune -a -f
             CI=true docker pull rtahiiev/rust-aws-ec2-project1:latest
-            CI=true docker run --name=rust-aws-ec2-project1 -d -p 80:8000
+            CI=true docker run --name=rust-aws-ec2-project1 -d -p 80:8000 rtahiiev/rust-aws-ec2-project1:latest
   
